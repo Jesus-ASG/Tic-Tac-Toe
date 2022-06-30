@@ -208,12 +208,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 53903147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &164969882
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,12 +313,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 164969882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &201929982
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,12 +418,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 201929982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 5
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &294878321
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,12 +523,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 294878321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &358718012
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +572,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 396155369}
   - {fileID: 1571107191}
   m_Father: {fileID: 1033581718}
   m_RootOrder: 0
@@ -646,6 +703,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &396155368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396155369}
+  - component: {fileID: 396155371}
+  - component: {fileID: 396155370}
+  m_Layer: 5
+  m_Name: pnl_score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &396155369
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396155368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 803117085}
+  m_Father: {fileID: 358718013}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -300}
+  m_SizeDelta: {x: 0, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &396155370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396155368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &396155371
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396155368}
+  m_CullTransparentMesh: 1
 --- !u!1 &492737859
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,12 +864,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 492737859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &640929362
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +894,6 @@ GameObject:
   m_Component:
   - component: {fileID: 640929364}
   - component: {fileID: 640929363}
-  - component: {fileID: 640929365}
   m_Layer: 0
   m_Name: GameManagerMainGame
   m_TagString: Untagged
@@ -770,14 +916,21 @@ MonoBehaviour:
   img:
   - {fileID: 1581355239}
   - {fileID: 53903150}
+  - {fileID: 492737861}
   - {fileID: 164969885}
   - {fileID: 294878324}
   - {fileID: 201929985}
   - {fileID: 2083759494}
   - {fileID: 1933917435}
   - {fileID: 1825530687}
+  score_text: {fileID: 803117086}
   imgO: {fileID: 21300000, guid: 8d1f41c4c15d34447a8607c6e4424e9a, type: 3}
   imgX: {fileID: 21300000, guid: 7f9848f13c7f0614f9170d7a7119ac1c, type: 3}
+  pnl_winner: {fileID: 7645559975509817370, guid: b663743ae020732488c08298d5b64f5b, type: 3}
+  parent_pane: {fileID: 1033581718}
+  player: 1
+  array: 000000000000000000000000000000000000000000000000000000000000000000000000
+  winner: 0
 --- !u!4 &640929364
 Transform:
   m_ObjectHideFlags: 0
@@ -792,21 +945,89 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &640929365
+--- !u!1 &803117084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 803117085}
+  - component: {fileID: 803117087}
+  - component: {fileID: 803117086}
+  m_Layer: 5
+  m_Name: score_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &803117085
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803117084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 396155369}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -220, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &803117086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640929362}
+  m_GameObject: {fileID: 803117084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 70
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Score:
+
+    X: 0
+
+    O: 0'
+--- !u!222 &803117087
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803117084}
+  m_CullTransparentMesh: 1
 --- !u!1 &1033581714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1233,7 @@ RectTransform:
   - {fileID: 1933917433}
   - {fileID: 1825530689}
   m_Father: {fileID: 358718013}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1069,7 +1290,6 @@ GameObject:
   - component: {fileID: 1581355240}
   - component: {fileID: 1581355239}
   - component: {fileID: 1581355241}
-  - component: {fileID: 1581355242}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1151,10 +1371,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1581355242}
-          m_TargetAssemblyTypeName: PutImage, Assembly-CSharp
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
           m_MethodName: setImage
-          m_Mode: 1
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1163,21 +1383,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1581355242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581355237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imgO: {fileID: 21300000, guid: 8d1f41c4c15d34447a8607c6e4424e9a, type: 3}
-  imgX: {fileID: 21300000, guid: 7f9848f13c7f0614f9170d7a7119ac1c, type: 3}
-  img: {fileID: 1581355239}
 --- !u!1 &1825530686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,12 +1468,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1825530686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 8
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1933917432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,12 +1573,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1933917432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 7
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2083759491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,9 +1678,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083759491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47c24f6501141cf4a9be02af2e488eee, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgO: {fileID: 0}
-  imgX: {fileID: 0}
-  img: {fileID: 0}
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 640929363}
+          m_TargetAssemblyTypeName: MainGame, Assembly-CSharp
+          m_MethodName: setImage
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 6
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
