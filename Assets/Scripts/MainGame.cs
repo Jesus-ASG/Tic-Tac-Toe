@@ -40,6 +40,11 @@ public class MainGame : MonoBehaviour
             checkWinner();
             player = 1;
         }
+        if (fullBoard())
+        {
+            winner = 0;
+            showWinner();
+        }
     }
 
     public void sample()
