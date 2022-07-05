@@ -1201,6 +1201,7 @@ MonoBehaviour:
   pnl_winner: {fileID: 1842875268}
   txt_winner: {fileID: 171702649}
   line: {fileID: 1392874530}
+  line_transform: {fileID: 1360907761}
 --- !u!4 &640929364
 Transform:
   m_ObjectHideFlags: 0
