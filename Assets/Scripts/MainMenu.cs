@@ -6,16 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static int mode; // 0 - single, 1 - two
 
-    // Update is called once per frame
-    void Update()
+    public void assignMode(int mode)
     {
-        
+        MainMenu.mode = mode;
     }
 
     public void LoadLevel(string nivel)

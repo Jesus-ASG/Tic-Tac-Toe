@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MainGame : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MainGame : MonoBehaviour
     public Image line;
     public Transform line_transform;
 
+    public float delay_time = 0.20f;
     private int player = 1; //0 = empty, 1 = X, 2 = O
     private int[,] board = new int[3, 3];
     private int[] array = new int[9];
@@ -26,27 +28,49 @@ public class MainGame : MonoBehaviour
     private int xPoints = 0;
     private int oPoints = 0;
 
+    System.Random random = new System.Random();
+
     public void Start()
     {
+        pnl_winner.SetActive(false);
     }
 
     public void setImage(int n)
     {
-        if (player == 1 && array[n] == 0)
+        if (MainMenu.mode == 0) // Vs AI
         {
-            img[n].sprite = imgX;
-            array[n] = 1;
-            updateBoard();
-            checkWinner();
-            player = 2;
+            if (player == 1 && array[n] == 0)
+            {
+                StartCoroutine(coroutine(n));
+            }
+            else if (player == 2)
+            {
+                // if can win, mark that box
+                if (!aiCanWin())
+                // else - block player
+                    //if(!aiCanBlock())
+                // none of the above - random
+                        aiRandom();
+            }
         }
-        else if (player == 2 && array[n] == 0)
+        else                // Vs Player
         {
-            img[n].sprite = imgO;
-            array[n] = 2;
-            updateBoard();
-            checkWinner();
-            player = 1;
+            if (player == 1 && array[n] == 0)
+            {
+                img[n].sprite = imgX;
+                array[n] = 1;
+                updateBoard();
+                checkWinner();
+                player = 2;
+            }
+            else if (player == 2 && array[n] == 0)
+            {
+                img[n].sprite = imgO;
+                array[n] = 2;
+                updateBoard();
+                checkWinner();
+                player = 1;
+            }
         }
     }
 
@@ -215,7 +239,6 @@ public class MainGame : MonoBehaviour
         winner = 0;
 
         pnl_winner.SetActive(true);
-        
     }
 
     public void reset()
@@ -257,6 +280,112 @@ public class MainGame : MonoBehaviour
         }
     }
 
+    public void LoadLevel(string nivel)
+    {
+        SceneManager.LoadScene(nivel);
+    }
 
+    private bool aiCanWin()
+    {
+        int times = 5;      // do 5 times
+        for (int i = 0; i < times; i++)
+        {
+            if (fullBoard())    // check if board is full
+                return false;
+            int aux = 0;
+            while (true)        // get a valid mark
+            {
+                aux = random.Next(0, array.Length);
+                if (array[aux] == 0)
+                    break;
+            }
+            array[aux] = 2;         // mark box in memory as a circle
+            updateBoard();          // update board from array
+            if (findHorizontal() || findVertical() || findCrossed()) // if found a winner
+            {
+                img[aux].sprite = imgO; // put right sprite
+                showWinner();           // show winner
+                score.text = "X - " + xPoints + "\nO - " + oPoints;
+                return true;
+            }
+            else
+                array[aux] = 0; // if not, returns to zero that box
+        }
+        return false;
+    }
+
+    private bool aiCanBlock()
+    {
+        int times = 5;      // do 5 times
+        for (int i = 0; i < times; i++)
+        {
+            if (fullBoard())    // check if board is full
+                return false;
+            int aux = 0;
+            while (true)        // get a valid mark
+            {
+                aux = random.Next(0, array.Length);
+                if (array[aux] == 0)
+                    break;
+            }
+            array[aux] = 1;         // mark box as a cross
+            player = 1;             // make turn to player
+            updateBoard();          // update board from array
+            if (findHorizontal() || findVertical() || findCrossed()) // if found a winner
+            {
+                line.transform.localScale = new Vector3(0, 0, 0); //makes line winner invisible
+                array[aux] = 2;         // mark that box as a circle
+                img[aux].sprite = imgO; // put right sprite
+                player = 2;             // leave player as it was before
+                line.transform.localScale = new Vector3(1, 1, 1); //makes line winner invisible
+                winner = 0;
+                return true;
+            }
+            else
+            {
+                array[aux] = 0; // if not, returns to zero that box
+                player = 2;             // leave player as it was before
+                line.transform.localScale = new Vector3(1, 1, 1); //makes line winner invisible
+                winner = 0;
+            }
+            
+        }
+        return false;
+    }
+
+    private void aiRandom()
+    {
+        if (fullBoard())
+            return;
+        int aux = 0;
+        while (true)
+        {
+            aux = random.Next(0, array.Length);
+            if (array[aux] == 0)
+                break;
+        }
+        img[aux].sprite = imgO;
+        array[aux] = 2;
+        updateBoard();
+        checkWinner();
+        player = 1;
+    }
+
+    private IEnumerator coroutine(int n)
+    {
+        int auxx = xPoints;
+        int auxo = oPoints;
+        img[n].sprite = imgX;
+        array[n] = 1;
+        updateBoard();
+        checkWinner();
+        player = 2;
+        yield return new WaitForSeconds(delay_time);
+        if ((auxx == xPoints) && auxo == oPoints)
+        {
+            setImage(player);
+            player = 1;
+        }
+    }
 
 }
