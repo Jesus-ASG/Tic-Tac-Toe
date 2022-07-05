@@ -9,22 +9,7 @@ public class WinnerMessage : MonoBehaviour
     public Text message;
     void Start()
     {
-        string win_message = "";
-        switch (MainGame.winner)
-        {
-            case 0:
-                win_message = "Tie!";
-                break;
-            case 1:
-                win_message = "Winner!\nX";
-                break;
-            case 2:
-                win_message = "Winner!\nO";
-                break;
-
-        }
-        message.text = win_message;
-        MainGame.winner = 0;
+        
     }
 
     public void onClick()

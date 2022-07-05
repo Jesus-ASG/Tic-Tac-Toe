@@ -9,18 +9,19 @@ using TMPro;
 public class MainGame : MonoBehaviour
 {
     public Image[] img;
-    public Text score_text;
     public TextMeshProUGUI score;
     public Sprite imgO;
     public Sprite imgX;
+
     public GameObject pnl_winner;
-    public Transform parent_pane;
+    public TextMeshProUGUI txt_winner;
+    public Image line;
 
-    public static int player = 1; //0 = empty, 1 = X, 2 = O
-    public static int[,] board = new int[3, 3];
-    public static int[] array = new int[9];
+    private int player = 1; //0 = empty, 1 = X, 2 = O
+    private int[,] board = new int[3, 3];
+    private int[] array = new int[9];
 
-    public static int winner = 0;
+    private int winner = 0;
     private int xPoints = 0;
     private int oPoints = 0;
 
@@ -41,12 +42,11 @@ public class MainGame : MonoBehaviour
             updateBoard();
             checkWinner();
             player = 1;
-        }
+        }/*
         if (fullBoard())
         {
-            winner = 0;
-            showWinner();
-        }
+            checkWinner();
+        }*/
     }
 
     private bool fullBoard()
@@ -61,10 +61,15 @@ public class MainGame : MonoBehaviour
     // There are 3 simple cases: horizontal, vertical and crossed (slash '/' or back slash '\')
     private void checkWinner()
     {
+        
         if (findHorizontal() || findVertical() || findCrossed()) 
         {
             showWinner();
             score.text = "X - " + xPoints + "\nO - " + oPoints;
+        }
+        else if (fullBoard())
+        {
+            showWinner();
         }
     }
 
@@ -110,6 +115,23 @@ public class MainGame : MonoBehaviour
                     winner = 1;
                 else
                     winner = 2;
+                /*
+                var rotationVector = line.transform.rotation.eulerAngles;
+                rotationVector.z = 90;
+                line.transform.rotation = Quaternion.Euler(rotationVector);
+                switch (i)
+                {
+                    case 0:
+                        line.transform.position = new Vector3(210, 0, 0);
+                        break;
+                    case 1:
+                        line.transform.position = new Vector3(0, 0, 0);
+                        break;
+                    case 2:
+                        line.transform.position = new Vector3(-210, 0, 0);
+                        break;
+                }*/
+
                 return true;
             }
         }
@@ -125,6 +147,11 @@ public class MainGame : MonoBehaviour
                 winner = 1;
             else
                 winner = 2;
+            var rotationVector = line.transform.rotation.eulerAngles;
+            rotationVector.z = -45;
+            line.transform.rotation = Quaternion.Euler(rotationVector);
+            line.transform.localScale = new Vector3(1.35f, 1, 1);
+
             return true;
         }
         
@@ -135,6 +162,11 @@ public class MainGame : MonoBehaviour
                 winner = 1;
             else
                 winner = 2;
+            var rotationVector = line.transform.rotation.eulerAngles;
+            rotationVector.z = 45;
+            line.transform.rotation = Quaternion.Euler(rotationVector);
+            line.transform.localScale = new Vector3(1.35f, 1, 1);
+
             return true;
         }
         return false;
@@ -146,10 +178,31 @@ public class MainGame : MonoBehaviour
             xPoints++;
         else if (winner == 2)
             oPoints++;
-        
-        Instantiate(pnl_winner, transform.position, transform.rotation, parent_pane);
+
+        string win_message = "";
+        switch (winner)
+        {
+            case 0:
+                win_message = "Tie!";
+                break;
+            case 1:
+                win_message = "X\nWins!";
+                break;
+            case 2:
+                win_message = "O\nWins!";
+                break;
+
+        }
+        txt_winner.text = win_message;
+        winner = 0;
+
+        pnl_winner.SetActive(true);
+
+
+
+        //Instantiate(pnl_winner, transform.position, transform.rotation, parent_pane);
         // when this object is created winner = ?, so we have to put in 0 again
-        reset();
+        //reset();
         
     }
 
@@ -164,6 +217,14 @@ public class MainGame : MonoBehaviour
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
                 board[i, j] = 0;
+        
+        var rotationVector = line.transform.rotation.eulerAngles;
+        rotationVector.z = 0;
+        line.transform.rotation = Quaternion.Euler(rotationVector);
+        line.transform.localScale = new Vector3(1, 1, 1);
+        line.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+
+        pnl_winner.SetActive(false);
     }
 
     private void updateBoard()
