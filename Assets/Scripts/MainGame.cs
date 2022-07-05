@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MainGame : MonoBehaviour
 {
     public Image[] img;
     public Text score_text;
+    public TextMeshProUGUI score;
     public Sprite imgO;
     public Sprite imgX;
     public GameObject pnl_winner;
@@ -47,20 +49,11 @@ public class MainGame : MonoBehaviour
         }
     }
 
-    public void sample()
-    {
-        img[0].sprite = null;
-    }
-
     private bool fullBoard()
     {
         for(int i = 0; i < array.Length; i++)
-        {
             if(array[i] == 0)
-            {
                 return false;
-            }
-        }
         return true;
     }
 
@@ -68,17 +61,19 @@ public class MainGame : MonoBehaviour
     // There are 3 simple cases: horizontal, vertical and crossed (slash '/' or back slash '\')
     private void checkWinner()
     {
-        if (findHorizontal() || findVertical() || findCrossed())
-            score_text.text = "Score:\nX: " + xPoints + "\nO: " + oPoints;
-        
+        if (findHorizontal() || findVertical() || findCrossed()) 
+        {
+            showWinner();
+            score.text = "X - " + xPoints + "\nO - " + oPoints;
+        }
     }
 
     private bool findHorizontal()
-    {   
-        for (int i = 0; i< 3; i++)
+    {
+        for (int i = 0; i< board.GetLength(0); i++)
         {
             int counter = 0;
-            for (int j = 0; j< 3; j++)
+            for (int j = 0; j< board.GetLength(1); j++)
             {
                 if (player == board[i, j])
                     counter++;
@@ -91,7 +86,6 @@ public class MainGame : MonoBehaviour
                     winner = 1;
                 else
                     winner = 2;
-                showWinner();
                 return true;
             }   
         }
@@ -100,10 +94,10 @@ public class MainGame : MonoBehaviour
 
     private bool findVertical()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < board.GetLength(0); i++)
         {
             int counter = 0;
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < board.GetLength(1); j++)
             {
                 if (player == board[j, i])
                     counter++;
@@ -116,7 +110,6 @@ public class MainGame : MonoBehaviour
                     winner = 1;
                 else
                     winner = 2;
-                showWinner();
                 return true;
             }
         }
@@ -132,7 +125,6 @@ public class MainGame : MonoBehaviour
                 winner = 1;
             else
                 winner = 2;
-            showWinner();
             return true;
         }
         
@@ -143,7 +135,6 @@ public class MainGame : MonoBehaviour
                 winner = 1;
             else
                 winner = 2;
-            showWinner();
             return true;
         }
         return false;
@@ -156,7 +147,7 @@ public class MainGame : MonoBehaviour
         else if (winner == 2)
             oPoints++;
         
-        GameObject t = Instantiate(pnl_winner, transform.position, transform.rotation, parent_pane);
+        Instantiate(pnl_winner, transform.position, transform.rotation, parent_pane);
         // when this object is created winner = ?, so we have to put in 0 again
         reset();
         
