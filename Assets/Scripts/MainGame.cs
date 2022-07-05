@@ -27,6 +27,7 @@ public class MainGame : MonoBehaviour
     private int winner = 0;
     private int xPoints = 0;
     private int oPoints = 0;
+    private int times = 30;
 
     System.Random random = new System.Random();
 
@@ -48,8 +49,8 @@ public class MainGame : MonoBehaviour
                 // if can win, mark that box
                 if (!aiCanWin())
                 // else - block player
-                    //if(!aiCanBlock())
-                // none of the above - random
+                    if(!aiCanBlock())
+                // none of the above - mark a box randomly
                         aiRandom();
             }
         }
@@ -84,7 +85,7 @@ public class MainGame : MonoBehaviour
 
     private void checkWinner()
     {
-        if (findHorizontal() || findVertical() || findCrossed()) 
+        if (findHorizontal(false) || findVertical(false) || findCrossed(false)) 
         {
             showWinner();
             score.text = "X - " + xPoints + "\nO - " + oPoints;
@@ -93,7 +94,7 @@ public class MainGame : MonoBehaviour
             showWinner();
     }
 
-    private bool findHorizontal()
+    private bool findHorizontal(bool tryMode)
     {
         for (int i = 0; i< board.GetLength(0); i++)
         {
@@ -107,6 +108,9 @@ public class MainGame : MonoBehaviour
             }
             if(counter == 3)
             {
+                if (tryMode)
+                    return true;
+
                 if (player == 1)
                     winner = 1;
                 else
@@ -127,14 +131,14 @@ public class MainGame : MonoBehaviour
             line_transform.position.y - 210.0f, line_transform.position.z);
                         break;
                 }
-
+                
                 return true;
             }
         }
         return false;
     }
 
-    private bool findVertical()
+    private bool findVertical(bool tryMode)
     {
         for (int i = 0; i < board.GetLength(0); i++)
         {
@@ -148,6 +152,9 @@ public class MainGame : MonoBehaviour
             }
             if (counter == 3)
             {
+                if (tryMode)
+                    return true;
+
                 if (player == 1)
                     winner = 1;
                 else
@@ -178,11 +185,14 @@ public class MainGame : MonoBehaviour
         return false;
     }
 
-    private bool findCrossed()
+    private bool findCrossed(bool tryMode)
     {
         // back slash form "\"
         if(player == board[0, 0] && player == board[1, 1] && player == board[2, 2])
         {
+            if (tryMode)
+                return true;
+
             if (player == 1)
                 winner = 1;
             else
@@ -198,6 +208,9 @@ public class MainGame : MonoBehaviour
         // slash form "/"
         if (player == board[2, 0] && player == board[1, 1] && player == board[0, 2])
         {
+            if (tryMode)
+                return true;
+
             if (player == 1)
                 winner = 1;
             else
@@ -287,7 +300,6 @@ public class MainGame : MonoBehaviour
 
     private bool aiCanWin()
     {
-        int times = 5;      // do 5 times
         for (int i = 0; i < times; i++)
         {
             if (fullBoard())    // check if board is full
@@ -301,7 +313,7 @@ public class MainGame : MonoBehaviour
             }
             array[aux] = 2;         // mark box in memory as a circle
             updateBoard();          // update board from array
-            if (findHorizontal() || findVertical() || findCrossed()) // if found a winner
+            if (findHorizontal(false) || findVertical(false) || findCrossed(false)) // if found a winner
             {
                 img[aux].sprite = imgO; // put right sprite
                 showWinner();           // show winner
@@ -316,7 +328,6 @@ public class MainGame : MonoBehaviour
 
     private bool aiCanBlock()
     {
-        int times = 5;      // do 5 times
         for (int i = 0; i < times; i++)
         {
             if (fullBoard())    // check if board is full
@@ -331,24 +342,18 @@ public class MainGame : MonoBehaviour
             array[aux] = 1;         // mark box as a cross
             player = 1;             // make turn to player
             updateBoard();          // update board from array
-            if (findHorizontal() || findVertical() || findCrossed()) // if found a winner
+            if (findHorizontal(true) || findVertical(true) || findCrossed(true)) // if found a winner(try mode)
             {
-                line.transform.localScale = new Vector3(0, 0, 0); //makes line winner invisible
                 array[aux] = 2;         // mark that box as a circle
                 img[aux].sprite = imgO; // put right sprite
                 player = 2;             // leave player as it was before
-                line.transform.localScale = new Vector3(1, 1, 1); //makes line winner invisible
-                winner = 0;
                 return true;
             }
             else
             {
                 array[aux] = 0; // if not, returns to zero that box
                 player = 2;             // leave player as it was before
-                line.transform.localScale = new Vector3(1, 1, 1); //makes line winner invisible
-                winner = 0;
             }
-            
         }
         return false;
     }
