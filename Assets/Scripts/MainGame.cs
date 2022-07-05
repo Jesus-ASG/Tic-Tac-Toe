@@ -190,9 +190,11 @@ public class MainGame : MonoBehaviour
 
     private void showWinner()
     {
-        if (winner == 1)
+        if (winner == 0)
+            line.transform.localScale = new Vector3(0, 0, 0);
+        else if (winner == 1)
             xPoints++;
-        else if (winner == 2)
+        else
             oPoints++;
 
         string win_message = "";
